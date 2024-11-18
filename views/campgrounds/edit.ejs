@@ -1,0 +1,34 @@
+<% layout('layouts/boilerplate') %>
+<form action="/campgrounds" method="post">
+  <div class="my-3 w-50">
+    <label for="title" class="form-label">Title</label>
+    <input
+      type="text"
+      id="title"
+      class="form-control"
+      name="campground[title]"
+    />
+  </div>
+  <div class="my-3 w-50">
+    <label for="location" class="form-label">Location</label>
+    <input
+      type="text"
+      id="location"
+      class="form-control"
+      name="campground[location]"
+    />
+  </div>
+  <div class="my-3 mb-5 w-50">
+    <label for="image" class="form-label">Image URL</label>
+    <input
+      type="text"
+      id="image"
+      class="form-control"
+      name="campground[image]"
+    />
+  </div>
+  <button class="btn btn-success mx-2">Update Camp</button>
+  <a class="btn btn-primary mx-2" href="/campgrounds/<%= campground._id %>"
+    >Back</a
+  >
+</form>

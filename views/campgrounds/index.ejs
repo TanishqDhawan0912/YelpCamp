@@ -1,0 +1,10 @@
+<% layout('layouts/boilerplate') %>
+<h1>hello there</h1>
+<button><a href="/campgrounds/new">Create Campground</a></button>
+<ul>
+  <% campgrounds.forEach((camp)=>{ %>
+  <li>
+    <a href="/campgrounds/<%= camp._id %>"><%= camp.title %></a>
+  </li>
+  <% }) %>
+</ul>

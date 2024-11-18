@@ -1,0 +1,85 @@
+<% layout('layouts/boilerplate') %>
+  <form
+    action="/campgrounds"
+    method="post"
+    class="column g-3 needs-validation"
+    novalidate
+  >
+    <div class="col-md-4 my-5">
+      <label for="validationCustom01" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="validationCustom01"
+        placeholder="title"
+        name="campground[title]"
+        required
+      />
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="col-md-4 my-5">
+      <label for="validationCustom01" class="form-label">Price</label>
+      <input
+        type="text"
+        class="form-control"
+        id="validationCustom01"
+        placeholder="price"
+        name="campground[price]"
+        required
+      />
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="col-md-4 my-5">
+      <label for="validationCustom01" class="form-label">Location</label>
+      <input
+        type="text"
+        class="form-control"
+        id="validationCustom01"
+        placeholder="location"
+        name="campground[location]"
+        required
+      />
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="col-md-4 my-5">
+      <label for="validationCustom01" class="form-label">Image URL</label>
+      <input
+        type="text"
+        class="form-control"
+        id="validationCustom01"
+        placeholder="image"
+        name="campground[image]"
+        required
+      />
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit">Submit form</button>
+      <a class="btn btn-danger mx-2" href="/campgrounds">Back</a>
+    </div>
+  </form>
+  <script>
+    (() => {
+      "use strict";
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      const forms = document.querySelectorAll(".needs-validation");
+
+      // Loop over them and prevent submission
+      Array.from(forms).forEach((form) => {
+        form.addEventListener(
+          "submit",
+          (event) => {
+            if (!form.checkValidity()) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+
+            form.classList.add("was-validated");
+          },
+          false
+        );
+      });
+    })();
+  </script>
+</form>
