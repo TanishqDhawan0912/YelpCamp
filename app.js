@@ -8,6 +8,7 @@ const catchAsync = require("./utils/catchAsync");
 const Joi = require("joi");
 const ExpressError = require("./utils/ExpressError");
 const { campgroundSchema } = require("./schemas.js");
+const seedDB = require("./seeds/index.js");
 
 mongoose.connect(
   "mongodb+srv://ratandhawan2004:5cbuXH8zE4vbbKb3@cluster0.vbbp3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
@@ -17,6 +18,8 @@ db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
   console.log("Database connected");
 });
+
+seedDB();
 
 const validateCampground = (req, res, next) => {
   const { error } = campgroundSchema.validate(req.body);
