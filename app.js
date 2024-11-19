@@ -38,7 +38,7 @@ app.get("/", (req, res) => {
 });
 
 app.get(
-  "https://yelp-camp-beige-seven.vercel.app/campgrounds",
+  "yelp-camp-beige-seven.vercel.app/campgrounds",
   async (req, res) => {
     const campgrounds = await Campground.find({});
     res.render("campgrounds/index", { campgrounds });
