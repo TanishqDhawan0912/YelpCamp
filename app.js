@@ -9,7 +9,9 @@ const Joi = require("joi");
 const ExpressError = require("./utils/ExpressError");
 const { campgroundSchema } = require("./schemas.js");
 
-mongoose.connect("mongodb://localhost:27017/yelp-camp");
+mongoose.connect(
+  "mongodb+srv://ratandhawan2004:5cbuXH8zE4vbbKb3@cluster0.vbbp3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+);
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
@@ -37,13 +39,10 @@ app.get("/", (req, res) => {
   res.render("campgrounds/home");
 });
 
-app.get(
-  "/campgrounds",
-  async (req, res) => {
-    const campgrounds = await Campground.find({});
-    res.render("campgrounds/index", { campgrounds });
-  }
-);
+app.get("/campgrounds", async (req, res) => {
+  const campgrounds = await Campground.find({});
+  res.render("campgrounds/index", { campgrounds });
+});
 
 app.post(
   "/campgrounds",
